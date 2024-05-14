@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree view-->
+         <record id="view_hotel_housekeeping_tree" model="ir.ui.view">
+              <field name="name">housekeeping.info.tree</field>
+              <field name="model">housekeeping.info</field>
+              <field name="arch" type="xml">
+                  <tree>
+                      <field name="sequence" widget="handle"/>
+                      <field name="task_description"/>
+                      <field name="scheduled_date"/>
+                      <field name="room_id"/>
+                      <field name="staff_ids"/>
+                  </tree>
+              </field>
+          </record>
+
+
+        <!--form view-->
+         <record id="view_hotel_housekeeping_form" model="ir.ui.view">
+              <field name="name">housekeeping.info.form</field>
+              <field name="model">housekeeping.info</field>
+              <field name="arch" type="xml">
+                  <form>
+                      <header>
+                        <button name="%(hotel_management_system.action_hotel_room)d" string="room" type="action" class="oe_highlight"/>
+                    </header>
+                      <sheet>
+                          <group>
+                              <group>
+                                   <field name="task_description"/>
+                                   <field name="scheduled_date"/>
+                              </group>
+                              <group>
+                                 <field name="room_id"/>
+                              </group>
+                          </group>
+                          <notebook>
+                              <page string="staff">
+                                 <field name="staff_ids"/>
+                              </page>
+                          </notebook>
+                      </sheet>
+                  </form>
+              </field>
+          </record>
+
+        <!--graph view-->
+        <record id="view_hotel_housekeeping_graph" model="ir.ui.view">
+              <field name="name">housekeeping.info.graph</field>
+              <field name="model">housekeeping.info</field>
+              <field name="arch" type="xml">
+                  <graph>
+                      <field name="task_description"/>
+                      <field name="scheduled_date"/>
+                      <field name="room_id"/>
+                      <field name="staff_ids"/>
+                  </graph>
+              </field>
+          </record>
+
+        <!--pivot view-->
+        <record id="view_hotel_housekeeping_pivot" model="ir.ui.view">
+              <field name="name">housekeeping.info.pivot</field>
+              <field name="model">housekeeping.info</field>
+              <field name="arch" type="xml">
+                  <pivot>
+                      <field name="task_description"/>
+                      <field name="scheduled_date"/>
+                      <field name="room_id"/>
+                      <field name="staff_ids"/>
+                  </pivot>
+              </field>
+          </record>
+
+        <!--search view-->
+        <record id="view_hotel_housekeeping_search" model="ir.ui.view">
+            <field name="name">housekeeping.info.search</field>
+            <field name="model">housekeeping.info</field>
+            <field name="arch" type="xml">
+                <search string="housekeeping_search">
+                    <field name="room_id"/>
+                    <field name="staff_ids"/>
+                    <field name="scheduled_date"/>
+                </search>
+            </field>
+        </record>
+
+
+          <!--Action window-->
+          <record id="action_hotel_housekeeping" model="ir.actions.act_window">
+              <field name="name">Housekeeping</field>
+              <field name="type">ir.actions.act_window</field>
+              <field name="res_model">housekeeping.info</field>
+              <field name="view_mode">tree,form,graph,pivot,search</field>
+              <field name="context">{}</field>
+              <field name="help" type="html">
+                  <p class="o_view_nocontent_smiling_face">
+                      Create your first housekeeping info!
+                  </p>
+              </field>
+          </record>
+    </data>
+
+    <menuitem id="menu_hotel_housekeeping"
+              name="housekeeping"
+              parent="menu_customer_master"
+              action="action_hotel_housekeeping"
+              sequence="0"/>
+</odoo>

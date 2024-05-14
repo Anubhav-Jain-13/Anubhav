@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree view-->
+        <record id="view_hotel_customer_tree" model="ir.ui.view">
+            <field name="name">customer.info.tree</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <tree string="customer_tree" decoration-info="gender == 'male'" decoration-danger="gender == 'female'">
+                    <field name="sequence" widget="handle"/>
+                    <field name="customerID"/>
+                    <field name="customer_name"/>
+                    <field name="email_id"/>
+                    <field name="phone_no"/>
+                    <field name="gender"/>
+                    <field name="address"/>
+                    <field name="signature" widget="signature" />
+                    <field name="customer_id_name"/>
+                    <field name="customer_id_number"/>
+                    <field name="booking_time"/>
+                    <field name="html_field"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--kanban view-->
+        <record id="view_hotel_customer_kanban" model="ir.ui.view">
+            <field name="name">customer.info.kanban</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <kanban string="customer_kanban" >
+                    <field name="id"/>
+                    <field name="customer_name"/>
+                    <field name="email_id"/>
+                    <field name="phone_no"/>
+                    <field name="gender"/>
+                    <field name="address"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                 <div class="o_kanban_image">
+                                     <field name="image" widget="image" class="oe_avatar"/>
+                                 </div>
+                                <div class="o_kanban_details">
+                                   <ul style="list-style-type:none;">
+                                      <li>
+                                          Name: <field name="customer_name"/>
+                                      </li>
+                                       <li>
+                                           Email id: <field name="email_id"/>
+                                       </li>
+                                       <li>
+                                           Phone no: <field name="phone_no"/>
+                                       </li>
+                                       <li>
+                                           Gender: <field name="gender"/>
+                                       </li>
+                                       <li>
+                                           Address: <field name="address"/>
+                                       </li>
+                                   </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--form view-->
+        <record id="view_hotel_customer_form" model="ir.ui.view">
+            <field name="name">customer.info.form</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <form string="customer_form">
+                    <!--wizard start-->
+                    <header>
+                        <button name="%(hotel_management_system.demo_demo_action_id)d" type="action" string="Help"
+                                class="btn-primary"/>
+                        <button name="%(hotel_management_system.demo_demo_action_id)d" type="action" string="Cancel"
+                                class="btn-primary"/>
+                    </header>
+                    <!--wizard end-->
+
+                    <sheet>
+                         <!--ir sequence start-->
+                    <div class="oe_title">
+                            <h1>
+                                <field name="customerID"/>
+                            </h1>
+                    </div>
+                       <!--ir sequence end-->
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="html_field"/>
+                                <field name="customer_name"/>
+                                <field name="email_id"/>
+                                <field name="phone_no"/>
+                                <field name="gender"/>
+                                <field name="signature" widget="signature"/>
+                            </group>
+                            <group>
+                                <field name="address"/>
+                                <field name="customer_id_name"/>
+                                <field name="customer_id_number"/>
+                                <field name="booking_time" help="write your booking time"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <!--chatter start-->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_follower"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                    <!--chatter end-->
+                </form>
+            </field>
+        </record>
+
+
+
+        <!--graph view-->
+        <record id="view_hotel_customer_graph" model="ir.ui.view">
+            <field name="name">customer.info.graph</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <graph string="customer_graph" type="pie">
+                    <field name="customer_name" type="column"/>
+                    <field name="gender" type="row"/>
+                    <field name="customer_id_name" type="row"/>
+                    <field name="booking_time" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--calendar view-->
+        <record id="view_hotel_customer_calendar" model="ir.ui.view">
+            <field name="name">customer.info.calendar</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <calendar string="customer_calendar" date_start="booking_time" color="customer_name">
+                    <field name="customer_name"/>
+                    <field name="booking_time"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--pivot view-->
+        <record id="view_hotel_customer_pivot" model="ir.ui.view">
+            <field name="name">customer.info.pivot</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <pivot string="customer_pivot">
+                    <field name="customer_name"/>
+                    <field name="email_id"/>
+                    <field name="phone_no"/>
+                    <field name="gender"/>
+                    <field name="address"/>
+                    <field name="customer_id_name"/>
+                    <field name="customer_id_number"/>
+                    <field name="booking_time"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--search view-->
+        <record id="view_hotel_customer_search" model="ir.ui.view">
+            <field name="name">customer.info.search</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <search string="customer_search">
+                    <field name="customer_name"/>
+                    <field name="email_id"
+                           filter_domain="['|',('phone_no','ilike','self'),('email_id','ilike','self')]"/>
+                    <field name="phone_no"/>
+                    <field name="customer_id_number"/>
+                    <field name="booking_time"/>
+
+                    <separator/>
+                    <filter name="male" string="Male" domain="[('gender','=','male')]"/>
+                    <filter name="female" string="Female" domain="[('gender','=','female')]"/>
+
+                    <separator/>
+                    <filter name="pan_card" string="Pan_card" domain="[('customer_id_name','=','pan')]"/>
+                    <filter name="aadhar_card" string="Aadhar_card" domain="[('customer_id_name','=','aadhar')]"/>
+
+                    <group string="Group By" expand="0">
+                        <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>
+                        <separator/>
+                        <filter name="customer_id_name" string="Customer_id_name"
+                                context="{'group_by':'customer_id_name'}"/>
+                    </group>
+
+                    <searchpanel>
+                        <field name="customer_id_name" string="Customer_id_name" enable_counters="1"/>
+                        <field name="gender" string="Gender" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+
+        <!--Action window for customer model-->
+        <record id="action_hotel_customer" model="ir.actions.act_window">
+            <field name="name">Customer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customer.info</field>
+            <field name="view_mode">kanban,tree,form,graph,calendar,pivot,search</field>
+            <field name="context">{'search_default_male':1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first customer!
+                </p>
+            </field>
+        </record>
+    </data>
+
+
+    <menuitem id="menu_hotel_customer"
+              name="Customer"
+              parent="menu_room_master"
+              action="action_hotel_customer"
+              sequence="0"/>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+                <!--main menu-->
+          <menuitem id="menu_sale_practice_root"
+                    name="Sale_practice"
+                    sequence="0"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+                  <!--Report action for staff model-->
+    <record id="action_report_hotel" model="ir.actions.report">
+        <field name="name">Staff Report</field>
+        <field name="model">staff.info</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hotel_management_system.report_staff_info</field>
+        <field name="report_file">hotel_management_system.report_staff_info</field>
+        <field name="binding_model_id" ref="model_staff_info"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+                <!--Report action for customer model-->
+    <record id="action_customer_report" model="ir.actions.report">
+        <field name="name">Customer Report</field>
+        <field name="model">customer.info</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hotel_management_system.report_customer_info</field>
+        <field name="report_file">hotel_management_system.report_customer_info</field>
+        <field name="binding_model_id" ref="model_customer_info"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

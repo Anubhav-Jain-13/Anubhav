@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree view-->
+        <record id="view_hotel_practice_tree" model="ir.ui.view">
+            <field name="name">practice.info1.tree</field>
+            <field name="model">practice.info1</field>
+            <field name="arch" type="xml">
+                <tree string="practice_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--form view-->
+        <record id="view_hotel_practice_form" model="ir.ui.view">
+            <field name="name">practice.info1.form</field>
+            <field name="model">practice.info1</field>
+            <field name="arch" type="xml">
+                <form string="practice_form">
+                    <header>
+                         <!--this button will redirect u to tree view of sale model-->
+                        <button name="%(sale.action_quotations_with_onboarding)d" string="Go to sale" type="action" class="oe_highlight"/>
+                        <button name="%(sale_practice.action_practice_wizard)d" string="Wizard" type="action" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--Action window for customer model-->
+        <record id="action_sale_practice" model="ir.actions.act_window">
+            <field name="name">Practice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">practice.info1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first practice!
+                </p>
+            </field>
+        </record>
+    </data>
+
+
+    <menuitem id="menu_sale_practice_action"
+              name="Practice1"
+              parent="menu_sale_practice_root"
+              action="action_sale_practice"
+              sequence="0"/>
+
+</odoo>

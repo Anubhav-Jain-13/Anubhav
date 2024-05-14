@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.sale_practice.practice,access_sale_practice,model_practice_info1,base.group_user,1,1,1,1
+access.sale_practice.practice.wizard,access_sale_practice_wizard,model_practice_wizard_info1,base.group_user,1,1,1,1
+access.sale_practice.practice.sale.wizard,access_sale_sale_wizard,model_print_wizard1,base.group_user,1,1,1,1
+access.sale_practice.commission.online,access_sale_practice,model_commission_online,base.group_user,1,1,1,1
+access.sale_practice.commission.model,access_sale_practice,model_commission_model,base.group_user,1,1,1,1

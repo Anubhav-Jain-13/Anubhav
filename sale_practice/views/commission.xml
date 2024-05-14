@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!--tree view-->
+        <!--        <record id="view_commission_model_tree" model="ir.ui.view">-->
+        <!--            <field name="name">commission.model.tree</field>-->
+        <!--            <field name="model">commission.model</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree string="commission_model_tree">-->
+        <!--                    <field name="start_date"/>-->
+        <!--                    <field name="end_date"/>-->
+        <!--                    <field name="user_id"/>-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+        <!--form view-->
+        <record id="view_commission_model_form" model="ir.ui.view">
+            <field name="name">commission.model.form</field>
+            <field name="model">commission.model</field>
+            <field name="arch" type="xml">
+                <!--                <header>-->
+                <!--                    <button name="show_data" string="Show Data" type="object" class="btn-primary"/>-->
+                <!--                </header>-->
+                <form string="commission_model_tree">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="customer"/>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page string="List">
+                            <field name="list"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <!--Action window for customer model-->
+        <record id="action_commission_model" model="ir.actions.act_window">
+            <field name="name">commission model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commission.model</field>
+            <field name="view_mode">form</field>
+            <!--            <field name="view_id" ref="view_sale_practice_commission_tree"/>-->
+        </record>
+
+
+    </data>
+
+
+    <menuitem id="menu_sale_commission_model"
+              name="Commission"
+              parent="your_module_inherit_sale_menu"
+              action="action_commission_model"
+              sequence="0"/>
+
+</odoo>

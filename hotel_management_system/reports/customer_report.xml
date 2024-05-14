@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_customer_info">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Print customer Data</h2>
+                        <p>Customer Name:
+                            <span t-field="o.customer_name"/>
+                        </p>
+                        <h3>CustomerID #
+                            <span t-field="o.customerID"/>
+                        </h3>
+                    </div>
+                    <table style="font-family: arial, sans-serif;border-collapse: collapse;width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Email id</th>
+                                <th>Phone no</th>
+                                <th>Gender</th>
+                                <th>customer id number</th>
+                                <th>booking time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span t-field="o.email_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.phone_no"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.gender"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.customer_id_number"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.booking_time"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

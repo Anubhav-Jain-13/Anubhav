@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="practice_qweb_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div style="position:absolute;text-align:center;">
+                                <img t-att-src="'data:image/png;base64,%s' '%to_text(o.name.logo)'" style="height:600px;width:300px;opacity:0.15;"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+
+
+
+
+    <record id="practice_report_id" model="ir.actions.report">
+        <field name="name">Practice Report</field>
+        <field name="model">practice.info1</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_practice.practice_qweb_report</field>
+        <field name="report_file">sale_practice.practice_qweb_report</field>
+        <field name="binding_model_id" ref="model_practice_info1"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

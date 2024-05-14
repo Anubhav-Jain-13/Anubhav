@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+                <!--main menu-->
+          <menuitem id="menu_hotel_root"
+                    name="Hotel"
+                    sequence="0"/>
+
+
+                <!--main submenu-->
+        <menuitem id="menu_customer_master"
+                    name="Admin"
+                    parent="menu_hotel_root"
+                    sequence="0"/>
+
+                <!--main submenu-->
+         <menuitem id="menu_room_master"
+              name="Booking"
+              parent="menu_hotel_root"
+              sequence="0"/>
+    </data>
+</odoo>

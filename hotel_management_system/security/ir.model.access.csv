@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.hotel_management_system.customer,access_hotel_customer,model_customer_info,base.group_user,1,1,1,1
+access.hotel_management_system.room,access_hotel_room,model_room_info,base.group_user,1,1,1,1
+access.hotel_management_system.staff,access_hotel_staff,model_staff_info,base.group_user,1,1,1,1
+access.hotel_management_system.housekeeping,access_hotel_housekeeping,model_housekeeping_info,base.group_user,1,1,1,1
+access.hotel_management_system.customer.wizard,access_hotel_customer_wizard,model_customer_wizard,base.group_user,1,1,1,1

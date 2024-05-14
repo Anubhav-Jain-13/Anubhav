@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the Sales menu -->
+    <record id="your_module_inherit_sale_menu" model="ir.ui.menu">
+        <field name="name">Commissions</field>
+        <field name="parent_id" ref="sale.sale_menu_root"/> <!-- Reference to the parent menu -->
+        <field name="sequence" eval="100"/> <!-- Define the sequence of your submenu -->
+    </record>
+
+
+</odoo>

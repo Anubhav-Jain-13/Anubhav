@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--kanban view-->
+        <record id="view_hotel_staff_kanban" model="ir.ui.view">
+            <field name="name">staff.info.kanban</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <kanban string="customer_kanban">
+                    <field name="id"/>
+                    <field name="employee_name"/>
+                    <field name="employee_position"/>
+                    <field name="phone_no"/>
+                    <field name="email_id"/>
+                    <field name="staff_id_no"/>
+                    <field name="age"/>
+                    <field name="gender" widget="badge"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <field name="image" widget="image" class="oe_avatar"/>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <ul style="list-style-type:none;">
+                                        <li>
+                                            Name:
+                                            <field name="employee_name"/>
+                                        </li>
+                                        <li>
+                                            Position:
+                                            <field name="employee_position"/>
+                                        </li>
+                                        <li>
+                                            Email id:
+                                            <field name="email_id"/>
+                                        </li>
+                                        <li>
+                                            Phone no:
+                                            <field name="phone_no"/>
+                                        </li>
+                                        <li>
+                                            Age:
+                                            <field name="age"/>
+                                        </li>
+                                        <li>
+                                            ID no:
+                                            <field name="staff_id_no"/>
+                                        </li>
+                                        <li>
+                                            Gender:
+                                            <field name="gender"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!--tree view-->
+        <record id="view_hotel_staff_tree" model="ir.ui.view">
+            <field name="name">staff.info.tree</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="gender == 'male'" decoration-danger="gender == 'female'">
+                    <field name="sequence" widget="handle"/>
+                    <field name="employee_name"/>
+                    <field name="employee_position"/>
+                    <field name="phone_no"/>
+                    <field name="email_id"/>
+                    <field name="staff_id_no"/>
+                    <field name="DOB"/>
+                    <field name="age"/>
+                    <field name="gender" widget="badge"/>
+                    <field name="housekeeping_ids" widget="many2many_tags"/>
+                    <field name="task_done"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--form view-->
+        <record id="view_hotel_staff_form" model="ir.ui.view">
+            <field name="name">staff.info.form</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <form string="Staff Form">
+                    <!--button for ORM method start-->
+                    <header>
+                        <button name="check_orm" string="Check_Orm" type="object" class="oe_highlight"/>
+                        <button name="create_orm" string="Create_Orm" type="object" class="oe_highlight"/>
+                        <button name="copy_orm" string="Copy_Orm" type="object" class="oe_highlight"/>
+                        <!--statusbar start here-->
+                        <field name = "status" widget = "statusbar"/>
+                        <button name = "resignation" string = "Resigned" type = "object" class ="oe_highlighht"/>
+                        <button name="revert_to_active" string="Revert to Active" type="object" class="oe_highlight"/>
+                        <!--statusbar end here-->
+                    </header>
+                    <!--button for ORM method end-->
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="employee_position"/>
+                                <field name="DOB"/>
+                                <field name="age"/>
+                                <field name="rating" widget="priority"/>
+                            </group>
+                            <group>
+                                <field name="staff_id_no"/>
+                                <field name="phone_no"/>
+                                <field name="email_id"/>
+                                <field name="gender"/>
+                                <field name="task_done"/>
+                                <field name="housekeeping_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <!--chatter start-->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_follower"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                    <!--chatter end-->
+                </form>
+            </field>
+        </record>
+
+        <!--graph view-->
+        <record id="view_hotel_staff_graph" model="ir.ui.view">
+            <field name="name">staff.info.graph</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="employee_name"/>
+                    <field name="employee_position"/>
+                    <field name="phone_no"/>
+                    <field name="email_id"/>
+                    <field name="gender"/>
+                    <field name="housekeeping_ids"/>
+                    <field name="task_done"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--pivot view-->
+        <record id="view_hotel_staff_pivot" model="ir.ui.view">
+            <field name="name">staff.info.pivot</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="employee_name"/>
+                    <field name="employee_position"/>
+                    <field name="phone_no"/>
+                    <field name="email_id"/>
+                    <field name="gender"/>
+                    <field name="housekeeping_ids"/>
+                    <field name="task_done"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--search view-->
+        <record id="view_hotel_staff_search" model="ir.ui.view">
+            <field name="name">staff.info.search</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <search string="staff_search">
+                    <field name="employee_name"/>
+                    <field name="employee_position"/>
+                    <field name="gender"/>
+                    <field name="email_id"/>
+                    <field name="phone_no"/>
+
+                    <separator/>
+                    <filter name="male" string="Male" domain="[('gender','=','male')]"/>
+                    <filter name="female" string="Female" domain="[('gender','=','female')]"/>
+
+                    <separator/>
+                    <filter name="manager" string="Manager" domain="[('employee_position','=','manager')]"/>
+                    <filter name="waiter" string="Waiter" domain="[('employee_position','=','waiter')]"/>
+                    <filter name="floor cleaner" string="Floor cleaner"
+                            domain="[('employee_position','=','floor cleaner')]"/>
+                    <filter name="washroom cleaner" string="Washroom cleaner"
+                            domain="[('employee_position','=','washroom cleaner')]"/>
+
+                    <group string="Group By" expand="0">
+                        <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>
+                        <separator/>
+                        <filter name="employee_position" string="Employee_position"
+                                context="{'group_by':'employee_position'}"/>
+                    </group>
+
+                    <searchpanel>
+                        <field name="employee_position" string="Employee_position" enable_counters="1"/>
+                        <field name="gender" string="Gender" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <!--Action window for all staff-->
+        <record id="action_hotel_all_staff" model="ir.actions.act_window">
+            <field name="name">All Staff</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">staff.info</field>
+            <field name="view_mode">tree,kanban,form,graph,pivot,search</field>
+            <field name="context">{'default_gender' : 'male'}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first staff info!
+                </p>
+            </field>
+        </record>
+
+        <!--Action window for male staff-->
+        <record id="action_hotel_male_staff" model="ir.actions.act_window">
+            <field name="name">Male Staff</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">staff.info</field>
+            <field name="view_mode">tree,kanban,form,graph,pivot</field>
+            <field name="context">{'default_gender' : 'male'}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first staff info!
+                </p>
+            </field>
+            <field name="domain">[('gender','=','male')]</field>
+        </record>
+
+        <!--Action window for female staff-->
+        <record id="action_hotel_female_staff" model="ir.actions.act_window">
+            <field name="name">Female Staff</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">staff.info</field>
+            <field name="view_mode">tree,kanban,form,graph,pivot</field>
+            <field name="context">{'default_gender' : 'female'}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first staff info!
+                </p>
+            </field>
+            <field name="domain">[('gender','=','female')]</field>
+        </record>
+    </data>
+
+    <!--menu for all staff-->
+    <menuitem id="menu_hotel_all_staff"
+              name="All Staff"
+              parent="menu_customer_master"
+              action="action_hotel_all_staff"
+              sequence="0"/>
+
+
+    <!--menu for all male staff-->
+    <menuitem id="menu_hotel_male_staff"
+              name="Male Staff"
+              parent="menu_customer_master"
+              action="action_hotel_male_staff"
+              sequence="0"/>
+
+
+    <!--menu for all female staff-->
+    <menuitem id="menu_hotel_female_staff"
+              name="Female Staff"
+              parent="menu_customer_master"
+              action="action_hotel_female_staff"
+              sequence="0"/>
+</odoo>

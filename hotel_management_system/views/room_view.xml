@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree view-->
+        <record id="view_hotel_room_tree" model="ir.ui.view">
+            <field name="name">room.info.tree</field>
+            <field name="model">room.info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="room_number"/>
+                    <field name="floor_number"/>
+                    <field name="room_type"/>
+                    <field name="price"/>
+                    <field name="status"/>
+                    <field name="housekeeping_ids"/>
+                    <field name="currency_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--form view-->
+        <record id="view_hotel_room_form" model="ir.ui.view">
+            <field name="name">room.info.form</field>
+            <field name="model">room.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--smart button start-->
+                    <header>
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" type="object" name="action_order_list"
+                                    icon="fa-building">
+                                <field string="Room" name="listed_property_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </header>
+                     <!--smart button end-->
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="room_number"/>
+                                <field name="floor_number"/>
+                                <field name="room_type"/>
+                            </group>
+                            <group>
+                                <field name="price"/>
+                                <field name="status"/>
+                                <field name="currency_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--graph view-->
+        <record id="view_hotel_room_graph" model="ir.ui.view">
+            <field name="name">room.info.graph</field>
+            <field name="model">room.info</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="room_number" type="measure"/>
+                    <field name="floor_number" type="row"/>
+                    <field name="room_type" type="row"/>
+                    <field name="price" type="row"/>
+                    <field name="status" type="row"/>
+                    <field name="housekeeping_ids" type="column"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <!--pivot view-->
+        <record id="view_hotel_room_pivot" model="ir.ui.view">
+            <field name="name">room.info.pivot</field>
+            <field name="model">room.info</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="room_number"/>
+                    <field name="floor_number"/>
+                    <field name="room_type"/>
+                    <field name="price"/>
+                    <field name="status"/>
+                    <field name="housekeeping_ids"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--search view-->
+        <record id="view_hotel_room_search" model="ir.ui.view">
+            <field name="name">room.info.search</field>
+            <field name="model">room.info</field>
+            <field name="arch" type="xml">
+                <search string="room_search">
+                    <field name="room_number"/>
+                    <field name="floor_number"/>
+                    <field name="room_type"/>
+                    <field name="status"/>
+                    <field name="price"/>
+
+                    <separator/>
+                    <filter name="standard_room" string="Standard" domain="[('room_type','=','standard')]"/>
+                    <filter name="deluxe_room" string="Deluxe" domain="[('room_type','=','deluxe')]"/>
+                    <filter name="luxury_room" string="Luxury" domain="[('room_type','=','luxury')]"/>
+
+                    <separator/>
+                    <filter name="available_room" string="Available" domain="[('status','=','available')]"/>
+                    <filter name="occupied_room" string="Occupied" domain="[('status','=','occupied')]"/>
+
+                    <group string="Group By" expand="0">
+                        <filter name="room_type" string="Room_type" context="{'group_by':'room_type'}"/>
+                        <separator/>
+                        <filter name="status" string="Status"
+                                context="{'group_by':'status'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <!--Action window-->
+        <record id="action_hotel_room" model="ir.actions.act_window">
+            <field name="name">Room</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">room.info</field>
+            <field name="view_mode">tree,form,graph,pivot,search</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first room info!
+                </p>
+            </field>
+        </record>
+    </data>
+
+    <menuitem id="menu_hotel_room"
+              name="Room"
+              parent="menu_room_master"
+              action="action_hotel_room"
+              sequence="0"/>
+</odoo>

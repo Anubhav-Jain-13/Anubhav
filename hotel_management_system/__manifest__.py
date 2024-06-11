@@ -19,6 +19,7 @@
               "reports/staff_report.xml",
               "reports/customer_report.xml",
               "data/sequence.xml",
+              "data/schedular_birthday.xml",
               ],
     "demo" : [],
     "installable" : True,

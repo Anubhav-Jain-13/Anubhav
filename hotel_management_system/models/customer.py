@@ -61,4 +61,23 @@ def create(self, vals):
 
 
 
+# schedular task start here
+class ResPartner(models.Model):
+    _inherit = "res.partner"
 
+    dob = fields.Date(string="DOB")
+    def run_bdy_notification(self):
+        today = fields.Date.today()
+        today_month_day = today.strftime('%m-%d')
+        all_records = self.search([])
+        for rec in all_records:
+            if rec.dob and rec.dob.strftime('%m-%d') == today_month_day:
+                email_values = {
+                    'email_to': rec.email,
+                    'subject': f"Happy Birthday {rec.name}"
+                }
+                print(f"Happy Birthday {rec.display_name}")
+                mail_template = self.env.ref('hotel_management_system.birthday_email_template')
+                mail_template.send_mail(rec.id, email_values=email_values, force_send=True)
+                print(f"Happy Birthday {rec.display_name} Again")
+# schedular task end here

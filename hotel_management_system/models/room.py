@@ -1,6 +1,13 @@
+import base64
+from io import BytesIO
+
 import self
+import xlwt
+
 from odoo import models, fields, api, exceptions
 from odoo.exceptions import UserError, ValidationError
+
+
 
 
 class RoomInformation(models.Model):
@@ -23,7 +30,7 @@ class RoomInformation(models.Model):
     listed_property_count = fields.Integer(string='Listed Property Count',
                                            compute='_compute_listed_property_count')
 
-           #smart button
+    # smart button
     def action_order_list(self):
         return {
             'type': 'ir.actions.act_window',
@@ -33,6 +40,7 @@ class RoomInformation(models.Model):
             'target': 'new',
             'domain': [('price', '=', self.price)]
         }
+
     @api.depends('price')
     def _compute_listed_property_count(self):
         for record in self:
@@ -40,8 +48,9 @@ class RoomInformation(models.Model):
                 [('price', '=', record.price)])
             record.listed_property_count = listed_property_count
 
+    # ORM create method
 
-      #ORM create method
+
 @api.model
 def create(self, vals):
     res = super(RoomInformation, self).create(vals)
@@ -50,14 +59,17 @@ def create(self, vals):
     return res
 
     # ORM write method
+
+
 def write(self, vals):
     res = super(RoomInformation, self).write(vals)
     print(type(res))
     print("writed>>>>>>>>>>", vals)
     return res
 
-
     # ORM unlink method
+
+
 def unlink(self):
     for room in self:
         if room.status == 'occupied':
@@ -67,13 +79,16 @@ def unlink(self):
     return super(RoomInformation, self).unlink()
 
     # ORM search method
+
+
 def search_rooms_by_status(self):
     rooms = self.env['room.info'].search([('status', '=', "available")])
     print(rooms)
     return rooms
 
-
     # ORM copy method
+
+
 def copy(self, default=None):
     if self.status == 'occupied':
         raise ValidationError(
@@ -81,3 +96,4 @@ def copy(self, default=None):
     res = super(RoomInformation, self).copy(default)
     print(type(res))
     return res
+

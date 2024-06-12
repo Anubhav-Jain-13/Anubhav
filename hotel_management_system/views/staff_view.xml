@@ -96,10 +96,13 @@
                         <button name="create_orm" string="Create_Orm" type="object" class="oe_highlight"/>
                         <button name="copy_orm" string="Copy_Orm" type="object" class="oe_highlight"/>
                         <!--statusbar start here-->
-                        <field name = "status" widget = "statusbar"/>
-                        <button name = "resignation" string = "Resigned" type = "object" class ="oe_highlighht"/>
+                        <field name="status" widget="statusbar"/>
+                        <button name="resignation" string="Resigned" type="object" class="oe_highlighht"/>
                         <button name="revert_to_active" string="Revert to Active" type="object" class="oe_highlight"/>
                         <!--statusbar end here-->
+                        <!-- button for email start here -->
+                        <button name="send_email" string="Send Email" type="object" class="oe_highlight"/>
+                        <!-- button for email end here -->
                     </header>
                     <!--button for ORM method end-->
                     <sheet>

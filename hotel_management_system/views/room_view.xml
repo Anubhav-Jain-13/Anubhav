@@ -26,16 +26,16 @@
             <field name="model">room.info</field>
             <field name="arch" type="xml">
                 <form>
-                    <!--smart button start-->
                     <header>
+                        <!--smart button start-->
                         <div name="button_box" position="inside">
                             <button class="oe_stat_button" type="object" name="action_order_list"
                                     icon="fa-building">
                                 <field string="Room" name="listed_property_count" widget="statinfo"/>
                             </button>
                         </div>
+                        <!--smart button end-->
                     </header>
-                     <!--smart button end-->
                     <sheet>
                         <group>
                             <group>

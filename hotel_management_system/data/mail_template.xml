@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <!-- function for staff model email start here -->
+        <record id="mail_template_staff_info_model" model="mail.template">
+            <field name="name">Hello Staff</field>
+            <field name="model_id" ref="hotel_management_system.model_staff_info"/>
+            <field name="subject">{{object.employee_name}}: Information</field>
+            <field name="email_to">anubhavjain13092001@gmail.com</field>
+            <field name="report_template_ids" eval="[(4, ref('hotel_management_system.action_report_hotel'))]"/>
+            <field name="body_html" type="html">
+                <p>
+                    Hello Customer
+                    <t t-esc="object.employee_name"/>
+                </p>
+            </field>
+        </record>
+        <!-- function for staff model email end here -->
+
+    </data>
+</odoo>

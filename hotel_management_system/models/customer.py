@@ -81,3 +81,7 @@ class ResPartner(models.Model):
                 mail_template.send_mail(rec.id, email_values=email_values, force_send=True)
                 print(f"Happy Birthday {rec.display_name} Again")
 # schedular task end here
+
+
+
+

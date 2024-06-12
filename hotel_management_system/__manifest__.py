@@ -6,7 +6,8 @@
     "category" : "Hotel management",
     "website" : "www.hotel.com",
     "summary" : "This model is about hotel info",
-    "depends" : ['base','mail'],
+    "depends" : ['base','mail', 'web','sale','sale_management','point_of_sale','hr_expense'],
+
     "data" : ["security/ir.model.access.csv",
               "views/menu.xml",
               "wizard/customer_wizard.xml",
@@ -16,11 +17,20 @@
               "views/staff_view.xml",
               "views/housekeeping_view.xml",
               "reports/report.xml",
+              "reports/room_report.xml",
               "reports/staff_report.xml",
               "reports/customer_report.xml",
               "data/sequence.xml",
               "data/schedular_birthday.xml",
+              "data/mail_template.xml",
               ],
+
+    'assets': {
+        'web.assets_backend': [
+            'hotel_management_system/static/src/js/expense_button.js',
+            'hotel_management_system/static/src/views/button.xml',
+     ],
+    },
     "demo" : [],
     "installable" : True,
     "auto_install" : False,

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="hotel_management_system.NewButton" t-inherit="hr_expense.ListButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
+            <button class="d-none d-md-block btn btn-secondary" t-on-click="getReport">
+                New Create Report
+            </button>
+        </xpath>
+    </t>
+</templates>

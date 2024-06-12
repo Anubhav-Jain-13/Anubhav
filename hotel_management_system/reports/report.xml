@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-                  <!--Report action for staff model-->
+    <!--Report action for staff model-->
     <record id="action_report_hotel" model="ir.actions.report">
         <field name="name">Staff Report</field>
         <field name="model">staff.info</field>
@@ -12,7 +12,7 @@
     </record>
 
 
-                <!--Report action for customer model-->
+    <!--Report action for customer model-->
     <record id="action_customer_report" model="ir.actions.report">
         <field name="name">Customer Report</field>
         <field name="model">customer.info</field>
@@ -22,4 +22,17 @@
         <field name="binding_model_id" ref="model_customer_info"/>
         <field name="binding_type">report</field>
     </record>
+
+    <!-- report for room model start here -->
+    <record id="action_report_room" model="ir.actions.report">
+        <field name="name">Room Report</field>
+        <field name="model">room.info</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hotel_management_system.report_room_info</field>
+        <field name="report_file">hotel_management_system.report_room_info</field>
+        <field name="binding_model_id" ref="model_room_info"/>
+        <field name="binding_type">report</field>
+    </record>
+    <!-- report for room model end here -->
+
 </odoo>

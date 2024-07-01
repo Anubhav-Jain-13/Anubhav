@@ -107,6 +107,10 @@
                     <!--button for ORM method end-->
                     <sheet>
                         <field name="image" widget="image" class="oe_avatar"/>
+                     <!--used for Archived start here-->
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <field name="active" invisible="1"/>
+                        <!--used for Archived end here-->
                         <group>
                             <group>
                                 <field name="employee_name"/>
@@ -185,6 +189,9 @@
                     <separator/>
                     <filter name="male" string="Male" domain="[('gender','=','male')]"/>
                     <filter name="female" string="Female" domain="[('gender','=','female')]"/>
+
+                    <separator/>
+                   <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
 
                     <separator/>
                     <filter name="manager" string="Manager" domain="[('employee_position','=','manager')]"/>

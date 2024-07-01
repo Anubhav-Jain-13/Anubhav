@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+       <!--custom button start here-->
+    <t t-name="point_of_sale.CustomerButtons">
+        <button class="btn-light rounded-0 fw-bolder" t-on-click="onClick">
+            <i class="fa fa-sticky-note me-1"/>
+            <span> </span>
+            <span>Custom Button</span>
+        </button>
+    </t>
+    <!--custom button end here-->
+
+
+    <!--payment button start here-->
+    <t t-name="wb_pos.PaymentScreenButtons" t-inherit="point_of_sale.PaymentScreenButtons"
+       t-inherit-mode="extension">
+          <xpath expr="//div[hasclass('payment-buttons')]" position="inside">
+                <button class="button button-partial-payment btn btn-light py-3 text-start rounded-0 border-bottom">
+                 <i class="fa fa-money me-2"/>Payment Button
+                </button>
+          </xpath>
+    </t>
+    <!--payment button end here-->
+
+
+    <!--name after total in pos order side start here-->
+    <t t-name="point_of_sale.anubhav" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
+        <xpath expr="//div[@t-if='props.tax']" position="after">
+            <div>
+                Name:
+                   Anubhav
+            </div>
+        </xpath>
+    </t>
+    <!--name after total in pos order side end here-->
+
+
+
+
+
+
+    <!--discount button in product screen start here-->
+<!--    <t t-name="point_of_sale.MyOrderlineDiscount">-->
+<!--        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">-->
+<!--            <i class="fa fa-sticky-note me-1"/>-->
+<!--            <span> </span>-->
+<!--            <span>My Discount</span>-->
+<!--        </button>-->
+<!--    </t>-->
+    <!--discount button in product screen end here-->
+
+
+
+
+
+
+</templates>
+
+
+
+

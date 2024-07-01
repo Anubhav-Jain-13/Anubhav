@@ -34,7 +34,8 @@
             <field name="res_model">room.wizard</field>
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_hotel_room_wizard_form"/>
-            <field name="target">new</field>  <!-- Corrected: 'new' instead of 'New' -->
+<!--            <field name="target">current</field>-->
+           <field name="target">new</field>
         </record>
     </data>
 

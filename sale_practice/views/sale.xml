@@ -94,5 +94,18 @@
         </record>
 
 
+   <record id="pos_order_line" model="ir.ui.view">
+            <field name="name">pos.order.form.view</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='session_id']"
+                       position="after">
+                    <field name="note"/>
+                </xpath>
+            </field>
+        </record>
+
+
     </data>
 </odoo>

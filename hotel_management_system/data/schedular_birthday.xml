@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
+    <data >
         <!-- Scheduled Action -->
         <record id="ir_cron_process_birthday_notification" model="ir.cron">
             <field name="name">Birthday Notification</field>

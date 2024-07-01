@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+ <record id="view_order_form_inherit_my_pos" model="ir.ui.view">
+            <field name="name">pos.order.form.my</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='session_id']" position="after">
+                    <field name="custom_note"/>
+                </xpath>
+            </field>
+        </record>
+
+
+<!--        <record id="res_config_settings_view_form" model="ir.ui.view">-->
+<!--        <field name="name">res.config.settings.view.form.inherit.point_of_sales</field>-->
+<!--        <field name="model">res.config.settings</field>-->
+<!--        <field name="inherit_id" ref="base.res_config_settings_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//setting[@id='variant_options']" position="before">-->
+<!--                <setting id="sale_discount_limit" title="User can limit the discount amount in the sale order line." help="User can limit the discount amount">-->
+<!--    &lt;!&ndash;                   invisible="not group_discount_per_so_line"&ndash;&gt;-->
+<!--                    <field name="is_discount_limit"/>-->
+<!--                    <div class="content-group">-->
+<!--    &lt;!&ndash;                       invisible="not is_discount_limit"&ndash;&gt;-->
+<!--                        <div class="mt16">-->
+<!--                            <label for="discount_limit"/>-->
+<!--                            <field name="discount_limit" invisible="is_discount_limit == 0"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </setting>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+        <record id="res_config_settings_view_form_new" model="ir.ui.view">
+        <field name="name">res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='restaurant_section']" position="after">
+                <block title="PointOfSale Percentage"  id="restaurant_section_field">
+                     <setting>
+                         <group>
+                               <field name="percentage"/>
+                         </group>
+                            </setting>
+                        </block>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

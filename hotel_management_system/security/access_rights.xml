@@ -1,0 +1,8 @@
+<odoo>
+
+    <record id="group_hotel_management_record_access" model="res.groups">
+        <field name="name">customer access</field>
+        <field name="category_id" ref="hotel_management_system.model_category_hotel"/>
+    </record>
+
+</odoo>

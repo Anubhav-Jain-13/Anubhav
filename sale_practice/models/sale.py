@@ -60,3 +60,12 @@ class ResPartner(models.Model):
 
     commission_amount = fields.Integer(string="Commission Amount")
     percentage = fields.Integer(string="Percentage")
+
+
+class posOrders_new(models.Model):
+    _inherit="pos.order"
+
+    note = fields.Char(string="Note")
+
+
+

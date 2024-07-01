@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <templates>
-    <t t-name="hotel_management_system.NewButton" t-inherit="hr_expense.ListButtons" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
-            <button class="d-none d-md-block btn btn-secondary" t-on-click="getReport">
-                New Create Report
-            </button>
-        </xpath>
+
+     <!-- Add button in hr expense model start here -->
+<!--    <t t-name="hotel_management_system.NewButton" t-inherit="hr_expense.ListButtons" t-inherit-mode="extension">-->
+<!--        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">-->
+<!--            <button class="d-none d-md-block btn btn-secondary" t-on-click="getReport">-->
+<!--                New Create Report-->
+<!--            </button>-->
+<!--        </xpath>-->
+<!--    </t>-->
+    <!-- Add button in hr expense model end here -->
+
+
+
+    <!-- Add button in sale model start here -->
+<!--    <t t-name="library_management.salenewbutton" t-inherit="web.ListView">-->
+<!--        <xpath expr="//t[@t-set-slot='layout-buttons']" position="inside">-->
+<!--            <button class="btn btn-primary" t-on-click="demo"> SaleButton </button>-->
+<!--        </xpath>-->
+<!--    </t>-->
+    <!-- Add button in sale model end here -->
+
+
+     <t t-name="point_of_sale.notesButton" >
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">
+            <i class="fa fa-comment" role="img" aria-label="Custom Alert" title="Custom Alert"/>
+            <span> </span>
+            <span>Add Notes</span>
+        </button>
     </t>
+
+    <t t-name="point_of_sale.MyOrderlineDiscount" >
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">
+            <i class="fa fa-comment" role="img" aria-label="Custom Alert" title="Custom Alert"/>
+            <span> </span>
+            <span>DISCOUNT</span>
+        </button>
+    </t>
+<!--            <t t-name="point_of_sale.customNote" t-inherit="point_of_sale.OrderWidget"-->
+<!--       t-inherit-mode="extension">-->
+<!--         <xpath expr="//div[hasclass('order-container')]" position="after">-->
+<!--          <span class="bg-secondary custom_note">heLO</span>-->
+<!--        </xpath>-->
+<!--    </t>-->
+
+
 </templates>

@@ -5,7 +5,7 @@
     "category" : "sale",
     "website" : "www.sale.com",
     "summary" : "This model is about sale info",
-    "depends" : ['base','sale','sale_management','stock'],
+    "depends" : ['base','sale','sale_management','stock','point_of_sale','web'],
     "data" : ["security/ir.model.access.csv",
               "views/menu.xml",
               "wizard/practice_wizard.xml",

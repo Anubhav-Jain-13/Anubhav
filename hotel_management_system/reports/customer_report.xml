@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+         <!--qweb report for customer model start here-->
     <template id="report_customer_info">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
@@ -47,4 +48,5 @@
             </t>
         </t>
     </template>
+    <!--qweb report for customer model end here-->
 </odoo>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
         <!-- function for staff model email start here -->
@@ -9,7 +10,8 @@
             <field name="report_template_ids" eval="[(4, ref('hotel_management_system.action_report_hotel'))]"/>
             <field name="body_html" type="html">
                 <p>
-                    Hello Customer
+                    Hello Customer,
+                    Anubhav
                     <t t-esc="object.employee_name"/>
                 </p>
             </field>

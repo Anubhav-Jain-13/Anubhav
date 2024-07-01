@@ -1,4 +1,5 @@
 <odoo>
+    <!--qweb report for room model start here-->
     <template id="report_room_info">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
@@ -36,4 +37,5 @@
             </t>
         </t>
     </template>
+    <!--qweb report for room model end here-->
 </odoo>

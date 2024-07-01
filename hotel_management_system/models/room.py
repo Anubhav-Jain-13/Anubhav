@@ -1,13 +1,7 @@
-import base64
-from io import BytesIO
-
-import self
-import xlwt
+# -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, exceptions
-from odoo.exceptions import UserError, ValidationError
-
-
+from odoo.exceptions import ValidationError
 
 
 class RoomInformation(models.Model):
@@ -48,52 +42,46 @@ class RoomInformation(models.Model):
                 [('price', '=', record.price)])
             record.listed_property_count = listed_property_count
 
-    # ORM create method
+        # ORM create method
 
-
-@api.model
-def create(self, vals):
-    res = super(RoomInformation, self).create(vals)
-    print(type(res))
-    print("created>>>>>>>>>>", vals)
-    return res
+    @api.model
+    def create(self, vals):
+        res = super(RoomInformation, self).create(vals)
+        print(type(res))
+        print("created>>>>>>>>>>", vals)
+        return res
 
     # ORM write method
 
+    def write(self, vals):
+        res = super(RoomInformation, self).write(vals)
+        print(type(res))
+        print("written>>>>>>>>>>", vals)
+        return res
 
-def write(self, vals):
-    res = super(RoomInformation, self).write(vals)
-    print(type(res))
-    print("writed>>>>>>>>>>", vals)
-    return res
+        # ORM unlink method
 
-    # ORM unlink method
+    def unlink(self):
+        for room in self:
+            if room.status == 'occupied':
+                raise exceptions.UserError(
+                    "Cannot delete room '{}' because it is currently occupied.".format(room.room_number))
+        print("unlinking room:", self.ids)
+        return super(RoomInformation, self).unlink()
 
+        # ORM search method
 
-def unlink(self):
-    for room in self:
-        if room.status == 'occupied':
-            raise exceptions.UserError(
-                "Cannot delete room '{}' because it is currently occupied.".format(room.room_number))
-    print("unlinking room:", self.ids)
-    return super(RoomInformation, self).unlink()
+    def search_rooms_by_status(self):
+        rooms = self.env['room.info'].search([('status', '=', "available")])
+        print(rooms)
+        return rooms
 
-    # ORM search method
+        # ORM copy method
 
-
-def search_rooms_by_status(self):
-    rooms = self.env['room.info'].search([('status', '=', "available")])
-    print(rooms)
-    return rooms
-
-    # ORM copy method
-
-
-def copy(self, default=None):
-    if self.status == 'occupied':
-        raise ValidationError(
-            "Cannot copy room '{}' because it is currently occupied.".format(self.room_number))
-    res = super(RoomInformation, self).copy(default)
-    print(type(res))
-    return res
-
+    def copy(self, default=None):
+        if self.status == 'occupied':
+            raise ValidationError(
+                "Cannot copy room '{}' because it is currently occupied.".format(self.room_number))
+        res = super(RoomInformation, self).copy(default)
+        print(type(res))
+        return res

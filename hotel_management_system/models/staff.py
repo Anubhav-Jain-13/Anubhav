@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from datetime import date
 from odoo import models, fields, api
 
@@ -36,20 +38,18 @@ class StaffInformation(models.Model):
         brw_id = self.env['staff.info'].browse(2)
         brw_id.copy()
 
-
     # button for resign and active start here
     def resignation(self):
-            for rec in self:
-                rec.status = 'resign'
+        for rec in self:
+            rec.status = 'resign'
 
     def revert_to_active(self):
-            for rec in self:
-                rec.status = 'active'
+        for rec in self:
+            rec.status = 'active'
 
     # button for resign and active end here
 
-
-        # fields
+    # fields
     employee_name = fields.Char(string="employee_name", required=True, index=True, track_visibility="always")
     employee_position = fields.Selection(
         [("manager", "Manager"), ("waiter", "Waiter"), ("floor cleaner", "Floor cleaner"),
@@ -64,8 +64,11 @@ class StaffInformation(models.Model):
     task_done = fields.Boolean(string="Task Done")
     image = fields.Binary(string="customer Image")
     sequence = fields.Integer(string="sq.")
-    rating=fields.Selection([('0','verylow'),('1','low'),('2','good'),('3','very good'),('4','excellent')],string="rating")
-    status = fields.Selection([('active', "Active"), ('resign', "Resign")], string="status", readonly=True, default='active')
+    rating = fields.Selection([('0', 'verylow'), ('1', 'low'), ('2', 'good'), ('3', 'very good'), ('4', 'excellent')],
+                              string="rating")
+    status = fields.Selection([('active', "Active"), ('resign', "Resign")], string="status", readonly=True,
+                              default='active')
+    active = fields.Boolean('Active', default=True) # used for Archived
 
     # compute function for age
     def _computed_age(self):
@@ -76,9 +79,7 @@ class StaffInformation(models.Model):
             else:
                 rec.age = 0
 
-
-
-# function for email template start here
+    # function for email template start here
     def send_email(self):
         self.ensure_one()
         # self.order_line._validate_analytic_distribution()
@@ -106,4 +107,3 @@ class StaffInformation(models.Model):
             'context': ctx,
         }
     # function for email template end here
-

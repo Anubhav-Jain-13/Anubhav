@@ -5,3 +5,4 @@ access.hotel_management_system.staff,access_hotel_staff,model_staff_info,base.gr
 access.hotel_management_system.housekeeping,access_hotel_housekeeping,model_housekeeping_info,base.group_user,1,1,1,1
 access.hotel_management_system.customer.wizard,access_hotel_customer_wizard,model_customer_wizard,base.group_user,1,1,1,1
 access.hotel_management_system.menu.room.wizard,access_hotel_room_wizard,model_room_wizard,base.group_user,1,1,1,1
+access.hotel_management_system.location,access_hotel_location,model_res_location,base.group_user,1,1,1,1

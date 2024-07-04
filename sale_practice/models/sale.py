@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class StockMoveNew(models.Model):
     _inherit = 'sale.order'
     custom_name = fields.Char(string="Custom Name")
+    total_quantity = fields.Integer(string="Total Quantity",compute='_compute_total_quantity', store=True)
 
     def action_confirm(self):
         for order in self:
@@ -22,6 +23,16 @@ class StockMoveNew(models.Model):
         res = super(StockMoveNew, self)._get_order_lines_to_report()
         print(" res>>>>>>>>>>>>>>", res)
         return res
+
+    @api.depends('order_line.product_uom_qty', 'order_line.product_id.type')
+    def _compute_total_quantity(self):
+        for order in self:
+            total_qty = sum(line.product_uom_qty for line in order.order_line if line.product_id.type == 'product')
+            order.update({
+                'total_quantity' : total_qty,
+            })
+
+
 
 class StockMove(models.Model):
     _inherit = 'stock.picking'

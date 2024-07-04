@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+      <!--add location task start here-->
+<odoo>
+    <data>
+        <record id="view_res_location_form" model="ir.ui.view">
+            <field name="name">res.location.form.views</field>
+            <field name="model">res.location</field>
+            <field name="arch" type="xml">
+                <form string="Location">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="pin_code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_location_tree" model="ir.ui.view">
+            <field name="name">res.location</field>
+            <field name="model">res.location</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="pin_code"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_location_action_id" model="ir.actions.act_window">
+            <field name="name">Res Location</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.location</field>
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+        <menuitem id="menu_location_master"
+                  name="Location"
+                  parent="point_of_sale.menu_point_config_product"
+                  action="res_location_action_id"/>
+
+    </data>
+</odoo>
+<!--add location task end here-->

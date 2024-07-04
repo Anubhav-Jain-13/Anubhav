@@ -10,6 +10,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_code']" position="before">
                     <field name="custom_name"/>
+                    <field name="total_quantity"/>
                 </xpath>
             </field>
         </record>

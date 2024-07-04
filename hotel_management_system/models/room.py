@@ -46,6 +46,9 @@ class RoomInformation(models.Model):
 
     @api.model
     def create(self, vals):
+        print("context before>>>>>>>>>>", self.env.context)
+        self = self.with_context(name="jay")
+        print("context after>>>>>>>>>>", self._context)
         res = super(RoomInformation, self).create(vals)
         print(type(res))
         print("created>>>>>>>>>>", vals)

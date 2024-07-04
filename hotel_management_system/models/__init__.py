@@ -4,3 +4,4 @@ from . import room
 from . import staff
 from . import housekeeping
 from . import pos
+from . import location

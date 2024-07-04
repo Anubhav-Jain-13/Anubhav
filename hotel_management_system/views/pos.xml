@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='session_id']" position="after">
                     <field name="custom_note"/>
+                    <field name="location"/> <!--add location in product screen in pos task-->
                 </xpath>
             </field>
         </record>
@@ -34,7 +35,7 @@
 <!--        </field>-->
 <!--    </record>-->
 
-
+<!--percentage button in product screen start here-->
         <record id="res_config_settings_view_form_new" model="ir.ui.view">
         <field name="name">res.config.settings</field>
         <field name="model">res.config.settings</field>
@@ -45,11 +46,20 @@
                      <setting>
                          <group>
                                <field name="percentage"/>
+                              <field name="location" widget="many2many_tags"/>
                          </group>
                             </setting>
                         </block>
             </xpath>
         </field>
     </record>
+        <!--percentage button in product screen end here-->
+
+
+
+
+
+
+
     </data>
 </odoo>

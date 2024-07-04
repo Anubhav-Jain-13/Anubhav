@@ -1,77 +1,5 @@
 /* @odoo-module */
 
-//import { Order } from "@point_of_sale/app/store/models";
-//import { patch } from "@web/core/utils/patch";
-//
-//
-//patch(Order.prototype, {
-    // init_from_JSON(json) {
-    //     super.init_from_JSON(...arguments);
-    //     this.customer_note = "hello brother";
-    // },
-
-    // export_as_JSON() {
-    //     const result = super.export_as_JSON(...arguments);
-    //     result.note = this.getCustomNote();
-    //     return result;
-    // },
-
-//    export_as_JSON() {
-//        const result = super.export_as_JSON(...arguments);
-//        result.note = this.getCustomNote();
-//        return result;
-//    },
-//    getCustomNote() {
-//        return this.note || "";
-//    },
-//    setCustomNote(note) {
-//        this.note = note;
-//    },
-//});
-// patch(Order.prototype, {
-//     // init_from_JSON(json) {
-//     //     super.init_from_JSON(...arguments);
-//     //     this.customer_note = "hello brother";
-//     // },
-
-//     export_as_JSON() {
-//         const json = super.export_as_JSON(...arguments);
-//         json['customer_note'] = this.getCustomNote()
-//         return json
-//     },
-
-//     export_as_JSON() {
-//         const result = super.export_as_JSON(...arguments);
-//         result.note = this.getCustomNote();
-//         return result;
-//     },
-//     getCustomNote() {
-//         return this.note || "";
-//     },
-//     setCustomNote(note) {
-//         this.note = note;
-//     },
-// });
-// import { Order } from "@point_of_sale/app/store/models";
-// import { patch } from "@web/core/utils/patch";
-
-// patch(Order.prototype, {
-//     init: function () {
-//         super.init(this, arguments);
-//         this.customer_note = "";
-//     },
-
-//     set_customer_note: function (note) {
-//         this.customer_note = note;
-//     },
-
-//     export_as_JSON: function () {
-//         const json = super.export_as_JSON(...arguments);
-//         json['customer_note'] = "hello brother"
-//         return json
-//     }
-// });
-
 
 
  import { _t } from "@web/core/l10n/translation";
@@ -121,15 +49,38 @@
  });
 
  patch(Order.prototype, {
-     export_as_JSON() {
+
+   setup(){
+super.setup(...arguments);
+        this.location = this.location || "";
+   },
+
+
+init_from_JSON(json) {
+        super.init_from_JSON(...arguments);
+        this.location = json.location;
+    },
+
+   export_as_JSON() {
          const result = super.export_as_JSON(...arguments);
          result.note = this.getCustomNote();
+         result.location = this.location;
          return result;
-     },
-     getCustomNote() {
+   },
+
+   getCustomNote() {
          return this.note || "";
-     },
-     setCustomNote(note) {
+   },
+
+   setCustomNote(note) {
          this.note = note;
-     },
- });
+   },
+
+   set_location(location) {
+        this.location = location; // Set the location attribute
+   },
+
+   get_location() {
+        return this.location; // Get the location attribute
+   }
+});

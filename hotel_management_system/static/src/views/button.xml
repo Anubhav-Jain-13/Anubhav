@@ -45,5 +45,33 @@
 <!--        </xpath>-->
 <!--    </t>-->
 
+     <!-- template for sundry customer task start here -->
+    <t t-name="point_of_sale.sundryReport" t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('top-right-buttons')]" position="inside">
+            <button type="button" class="btn btn-outline-success" t-on-click="click">Set Sundry Customer</button>
+        </xpath>
+    </t>
+    <!-- template for sundry customer task end here -->
 
+
+   <!-- template for location task start here -->
+   <t t-name="point_of_sale.locationBtn">
+        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.OnClick()">
+
+            <span t-esc="state.locationText"/>
+
+        </button>
+    </t>
+     <t t-name="point_of_sale.NoteInReport" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('pos-receipt-amount')]" position="after">
+            <div><span class="Location">Location :- <t t-esc="props.data.location_recept"/></span>
+
+           </div>
+
+        </xpath>
+    </t>
+   <!-- template for location task end here -->
+
+
+<!--  t-if=pros.partner-->
 </templates>

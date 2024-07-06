@@ -10,7 +10,6 @@ class HousekeepingInformation(models.Model):
     _rec_name = "task_description"
 
     # fields
-
     task_description = fields.Text(string="Task description")
     scheduled_date = fields.Date(string="Scheduled_date")
     room_id = fields.Many2one('room.info', string="Room no")
@@ -24,5 +23,3 @@ class HousekeepingInformation(models.Model):
     #     # Filter tasks that are assigned to any of the given staff members
     #     tasks_for_staff = all_tasks.filtered(lambda task: any(staff_id in task.staff_ids.ids for staff_id in staff_ids))
     #     return tasks_for_staff
-
-

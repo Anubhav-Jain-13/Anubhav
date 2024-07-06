@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--         function for showing list price through popup in product.product model start here-->
+        <record id="view_product_lst_price_popup_form" model="ir.ui.view">
+            <field name="name">product.lst.price.popup.form</field>
+            <field name="model">product.lst_price.popup</field>
+            <field name="arch" type="xml">
+                <form string="List Price">
+                    <group>
+                        <field name="lst_price" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Close" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_lst_price_popup" model="ir.actions.act_window">
+            <field name="name">List Price</field>
+            <field name="res_model">product.lst_price.popup</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_lst_price_popup_form"/>
+            <field name="target">new</field>
+        </record>
+       <!--function for showing list price through popup in product.product model start here-->
+
+    </data>
+</odoo>

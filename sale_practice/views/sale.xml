@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-
+           <!--inherit sale.order and add two field in a form view start here-->
         <record id="view_order_form_inherit_my" model="ir.ui.view">
             <field name="name">sale.order.form.my</field>
             <field name="model">sale.order</field>
@@ -10,10 +10,12 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='country_code']" position="before">
                     <field name="custom_name"/>
-                    <field name="total_quantity"/>
+                    <field name="total_quantity"/><!--add field in sale.order-->
                 </xpath>
             </field>
         </record>
+     <!--inherit sale.order and add two field in a form view end here-->
+
 
         <record id="_stock_form_view" model="ir.ui.view">
             <field name="name">stock.picking.form.view</field>
@@ -36,6 +38,7 @@
                        position="after">
                     <field name="extra"/>
                 </xpath>
+
             </field>
         </record>
 
@@ -94,7 +97,7 @@
             </field>
         </record>
 
-
+        <!--inherit pos.order and add one field in a form view start here-->
    <record id="pos_order_line" model="ir.ui.view">
             <field name="name">pos.order.form.view</field>
             <field name="model">pos.order</field>
@@ -106,6 +109,49 @@
                 </xpath>
             </field>
         </record>
+           <!--inherit pos.order and add one field in a form view end here-->
+
+                 <!--inherit product.product and add one button in a form view start here-->
+        <record id="product_product_inherit_new_button" model="ir.ui.view">
+            <field name="name">product.product.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <button name="new_button" type="object" string="New Button" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+           <!--inherit product.product and add one button in a form view end here-->
+
+
+           <!--inherit product.product and add one button in a header start here-->
+        <record id="product_product_view_form_easy_inherit_stock_new_button" model="ir.ui.view">
+            <field name="name">product.product.view.form.inherit.stock</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_open_label_layout']" position="after">
+                    <button string="My Button" type="object"
+                        name="my_button" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--        <record id="view_product_product_form" model="ir.ui.view">-->
+<!--            <field name="name">product.product.form</field>-->
+<!--            <field name="model">product.product</field>-->
+<!--            <field name="inherit_id" ref="product.product_normal_form_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <header>-->
+<!--                    <button name="get_expensive_products"-->
+<!--                            string="Get Expensive Products"-->
+<!--                            type="object"-->
+<!--                            class="oe_highlight"/>-->
+<!--                </header>-->
+<!--            </field>-->
+<!--        </record>-->
+          <!--inherit product.product and add one button in a header end here-->
 
 
     </data>

@@ -9,6 +9,7 @@
     "data" : ["security/ir.model.access.csv",
               "views/menu.xml",
               "wizard/practice_wizard.xml",
+              "wizard/product_my_popup.xml",
               "wizard/sale_wizard.xml",
               "views/menu_inherit.xml",
               "views/commission.xml",

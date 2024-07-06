@@ -8,7 +8,9 @@
     "summary": "This model is about hotel info",
     "depends": ['base', 'mail', 'web', 'sale', 'sale_management', 'point_of_sale', 'hr_expense', 'website'],
 
-    "data": ["security/ir.model.access.csv",
+
+    "data": ["security/access_rights.xml",
+             "security/ir.model.access.csv",
              "views/menu.xml",
              "wizard/customer_wizard.xml",
              "wizard/create_room_wizard.xml",
@@ -16,6 +18,9 @@
              "views/room_view.xml",
              "views/staff_view.xml",
              "views/housekeeping_view.xml",
+             "views/sale_approval.xml",
+             "views/my_sale_order_line.xml",
+             "views/sale_order_form.xml",
              "views/pos.xml",
              "views/add_button_sale.xml",
              "views/location.xml",

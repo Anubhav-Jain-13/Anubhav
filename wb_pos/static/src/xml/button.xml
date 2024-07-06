@@ -36,10 +36,6 @@
     <!--name after total in pos order side end here-->
 
 
-
-
-
-
     <!--discount button in product screen start here-->
 <!--    <t t-name="point_of_sale.MyOrderlineDiscount">-->
 <!--        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="() => this.onClick()">-->
@@ -49,10 +45,6 @@
 <!--        </button>-->
 <!--    </t>-->
     <!--discount button in product screen end here-->
-
-
-
-
 
 
 </templates>

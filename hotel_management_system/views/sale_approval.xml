@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--code to add one custom field in res.config.settings start here-->
+<record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale_approval</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                    <block>
+                        <setting id="sale_limit" string="Sale limit">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <field class="w-50" name="sale_limit"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+            </xpath>
+        </field>
+    </record>
+       <!--code to add one custom field in res.config.settings end here-->
+
+           <!--code to add one custom state in sale.order start here-->
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/field[@widget='statusbar']" position="attributes">
+                <attribute name="statusbar_visible">draft,sent,to_approve,sale</attribute>
+            </xpath>
+            </field>
+        </record>
+           <!--code to add one custom state in sale.order end here-->
+
+
+
+    </data>
+</odoo>

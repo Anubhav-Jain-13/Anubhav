@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+ <!--code to add one custom button in sale.order start here-->
+        <record id="sale_order_form_new_button" model="ir.ui.view">
+            <field name="name">sale.order.form.new.button</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_cancel']" position="after">
+                    <button name="approve" type="object" string="Approve" class="btn-primary" groups="hotel_management_system.group_manager_record_access"/>
+                </xpath>
+            </field>
+        </record>
+        <!--code to add one custom button in sale.order end here-->
+
+
+         <!--Action window-->
+        <record id="action_manager_approve" model="ir.actions.act_window">
+            <field name="name">Manager</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'to_approve')]</field>
+        </record>
+
+
+        <menuitem id="menu_manager_approve"
+                    name="Manager"
+                    parent="sale.sale_menu_root"
+                    groups="hotel_management_system.group_manager_record_access"
+                    action="hotel_management_system.action_manager_approve"
+                    sequence="6"/>
+
+
+
+    </data>
+</odoo>

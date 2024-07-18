@@ -7,3 +7,5 @@ access.hotel_management_system.customer.wizard,access_hotel_customer_wizard,mode
 access.hotel_management_system.menu.room.wizard,access_hotel_room_wizard,model_room_wizard,base.group_user,1,1,1,1
 access.hotel_management_system.location,access_hotel_location,model_res_location,base.group_user,1,1,1,1
 access_hotel_manager,access_hotel_manager,base.model_res_users,hotel_management_system.group_manager_record_access,1,1,1,1
+access.hotel_management_system.public,access_public_info,model_public_info,base.group_user,1,1,1,1
+access.hotel_management_system.private,access_private_info,model_private_info,base.group_user,1,1,1,1

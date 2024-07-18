@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data >
+        <!-- Scheduled Action -->
+<!--        <record id="ir_cron_schedular_practice" model="ir.cron">-->
+<!--            <field name="name">practice</field>-->
+<!--            <field name="model_id" ref="hotel_management_system.model_staff_info"/>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">model.print_data()</field>-->
+<!--&lt;!&ndash;            <field name="user_id" ref="base.user_root"/> &lt;!&ndash; or another user with appropriate access rights &ndash;&gt;&ndash;&gt;-->
+<!--            <field name="interval_type">minutes</field>-->
+<!--            <field name="interval_number">1</field>-->
+<!--            <field name="numbercall">-1</field>-->
+<!--&lt;!&ndash;            <field name="doall" eval="False"/>&ndash;&gt;-->
+<!--            <field name="active" eval="True"/>-->
+<!--        </record>-->
+    </data>
+</odoo>

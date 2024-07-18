@@ -95,6 +95,7 @@
                         <button name="check_orm" string="Check_Orm" type="object" class="oe_highlight"/>
                         <button name="create_orm" string="Create_Orm" type="object" class="oe_highlight"/>
                         <button name="copy_orm" string="Copy_Orm" type="object" class="oe_highlight"/>
+                        <button name="button_get_view" string="get view" type="object" class="oe_highlight"/>
                         <!--statusbar start here-->
                         <field name="status" widget="statusbar"/>
                         <button name="resignation" string="Resigned" type="object" class="oe_highlighht"/>

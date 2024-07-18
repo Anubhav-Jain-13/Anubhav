@@ -85,6 +85,7 @@
                                 class="btn-primary"/>
                         <button name="%(hotel_management_system.demo_demo_action_id)d" type="action" string="Cancel"
                                 class="btn-primary"/>
+<!--                        <button name="check_context" type="object" string="check context" class="btn-primary" context="{'Name': 'male'}"/>-->
                     </header>
                     <!--wizard end-->
 

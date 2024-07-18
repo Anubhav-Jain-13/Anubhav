@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--custom controller start here-->
+        <template id="tmp_practice" name="anubhav">
+            <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <center>
+                        <h3>Sale Details</h3>
+                    </center>
+                    <br/>
+                    <table style="font-family: arial, sans-serif;width: 100%;">
+                        <thead>
+                            <tr>
+                                <h6>
+                                    <b>
+                                        <th style="text-align: left;padding: 8px;">sequence Number</th>
+                                        <th style="text-align: left;padding: 8px;">Customer Name</th>
+                                        <th style="text-align: left;padding: 8px;">sale Person</th>
+                                        <th style="text-align: left;padding: 8px;">Company</th>
+                                        <th style="text-align: left;padding: 8px;">total_quantity</th>
+                                        <th style="text-align: left;padding: 8px;">Status</th>
+                                    </b>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="records" t-as="o">
+                                <tr>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <a t-attf-href="#{ o.id }">
+                                            <span t-esc="o.name"/>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <span t-esc="o.partner_id.name"/>
+                                    </td>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <span t-esc="o.user_id.name"/>
+                                    </td>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <span t-esc="o.company_id.name"/>
+                                    </td>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <span t-esc="o.total_quantity"/>
+                                    </td>
+                                    <td style="text-align: left;padding: 8px;">
+                                        <span t-esc="o.state"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </t>
+        </template>
+                <!--custom controller end here-->
+    </data>
+</odoo>

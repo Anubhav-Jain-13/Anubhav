@@ -1,0 +1,130 @@
+<odoo>
+    <template id="website_form_create" name="New Form">
+        <t t-call="website.layout">
+            <div class="anubhav">
+                <div style="background-color: #e3f2fd;">
+                    <div class="header-section" style="display: flex; align-items: center;">
+                        <img src="/hotel_management_system/static/src/img/tiger.png" alt="Logo" class="logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;"/>
+                        <h1 style="margin-right: 20px;">My Website</h1>
+                    </div>
+
+                    <!-- Navigation Bar -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">INSTAGRAM</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Pricing</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <br/>
+
+                    <!-- Card Section -->
+                    <div class="row mt-4">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img src="/hotel_management_system/static/src/img/horse.png" class="card-img-top" alt="Card image 1" style="height: 150px; object-fit: cover;"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 1</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img src="/hotel_management_system/static/src/img/image2.png" class="card-img-top" alt="Card image 2" style="height: 150px; object-fit: cover;"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 2</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img src="/hotel_management_system/static/src/img/image3.png" class="card-img-top" alt="Card image 3" style="height: 150px; object-fit: cover;"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 3</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <!-- Table Section -->
+                    <table class="table">
+                        <h1>TABLE</h1>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Domain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Anubhav</td>
+                                <td>odoo</td>
+                            </tr>
+                            <tr>
+                                <td>Naman</td>
+                                <td>odoo</td>
+                            </tr>
+                            <tr>
+                                <td>Dhatri</td>
+                                <td>odoo</td>
+                            </tr>
+                            <tr>
+                                <td>Prerna</td>
+                                <td>Shopify</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+
+                    <br/>
+
+                    <!-- Form Section -->
+                    <form class="form-submit" action="/hotel_management/submit_button" method="post">
+                        <h2>EMPLOYEE FORM</h2>
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" />
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"/>
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="o_button btn btn-primary submitButton">Submit</button>
+                    </form>
+                    <button type="button" class="o_subtitle btn btn-primary">Open</button>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="thank_you_page" name="Thank You Page">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="bg-info">
+                    <h2>Thank You!</h2>
+                    <p>Your form has been submitted successfully.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

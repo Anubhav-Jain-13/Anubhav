@@ -38,6 +38,18 @@ class CustomerInformation(models.Model):
         ('unique_name', 'UNIQUE (customer_name)', 'Customer name must be unique.')
     ]
 
+    # check context and with_context start here
+    # def check_context(self):
+    #     a = self.env.context.get('Name')
+    #     self.gender = a
+    #     return a
+    #
+    # def change_context(self):
+    #     if self.customer_name == 'Dhatri':
+    #         self.with_context(Name="Female").check_context()
+    #     return
+    # check context and with_context end here
+
     # create ORM method start here
     @api.model
     def create(self, vals):

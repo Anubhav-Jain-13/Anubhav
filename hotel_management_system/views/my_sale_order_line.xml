@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-                 <!--add image in sale.order.line model start here-->
+        <!--add image in sale.order.line model start here-->
         <record id="view_order_line_form_inherit_image_id" model="ir.ui.view">
             <field name="name">sale.order.line.form.inherit_image</field>
             <field name="model">sale.order</field>
@@ -13,10 +13,10 @@
                 </xpath>
             </field>
         </record>
-                <!--add image in sale.order.line model end here-->
+        <!--add image in sale.order.line model end here-->
 
 
-                  <!--add image in stock.picking model start here-->
+        <!--add image in stock.picking model start here-->
         <record id="view_stock_picking_form_inherit_image_id" model="ir.ui.view">
             <field name="name">stock.picking.form.inherit_image</field>
             <field name="model">stock.picking</field>
@@ -27,10 +27,10 @@
                 </xpath>
             </field>
         </record>
-             <!--add image in stock.picking model end here-->
+        <!--add image in stock.picking model end here-->
 
 
-              <!--add image in account.move model start here-->
+        <!--add image in account.move model start here-->
         <record id="view_account_move_form_inherit_image_id" model="ir.ui.view">
             <field name="name">account.move.inherit_image</field>
             <field name="model">account.move</field>
@@ -41,10 +41,10 @@
                 </xpath>
             </field>
         </record>
-             <!--add image in account.move model end here-->
+        <!--add image in account.move model end here-->
 
 
-              <!--add image in sale report model start here-->
+        <!--add image in sale report model start here-->
         <template id="sale_order_inherit_image_report" inherit_id="sale.report_saleorder_document">
             <xpath expr="//th[@name='th_quantity']" position="before">
                 <th name="th_extraField">Image</th>
@@ -63,6 +63,9 @@
             </td>
         </template>
         <!--add image in sale report model end here-->
+
+
+
 
     </data>
 </odoo>

@@ -5,4 +5,5 @@ access.sale_practice.practice.sale.wizard,access_sale_sale_wizard,model_print_wi
 access.sale_practice.commission.online,access_sale_practice,model_commission_online,base.group_user,1,1,1,1
 access.sale_practice.commission.model,access_sale_practice,model_commission_model,base.group_user,1,1,1,1
 access.sale_practice.product.popup,access_sale_practice,model_product_lst_price_popup,base.group_user,1,1,1,1
+access.sale_practice.sale.order.duplicate,access_sale_practice,model_sale_order_duplicate,base.group_user,1,1,1,1
 

@@ -14,7 +14,6 @@
         </record>
         <!--code to add one custom button in sale.order end here-->
 
-
          <!--Action window-->
         <record id="action_manager_approve" model="ir.actions.act_window">
             <field name="name">Manager</field>
@@ -31,8 +30,6 @@
                     groups="hotel_management_system.group_manager_record_access"
                     action="hotel_management_system.action_manager_approve"
                     sequence="6"/>
-
-
 
     </data>
 </odoo>

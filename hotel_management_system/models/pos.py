@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 
 
 class PosOrder(models.Model):
@@ -24,7 +24,6 @@ class PosOrder(models.Model):
         return order_result
 
 
-
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
@@ -42,14 +41,15 @@ class ResConfigSettings(models.TransientModel):
     #     config_parameter='percentage',
     #     help='The discount limit amount in percentage ', default=10)
 
-    percentage = fields.Integer(string="Percentage",config_parameter="percentage")
+    percentage = fields.Integer(string="Percentage", config_parameter="percentage")
     # add location task start here
-    location = fields.Many2many(string='Location',related='pos_config_id.location_ids',readonly=False)
+    location = fields.Many2many(string='Location', related='pos_config_id.location_ids', readonly=False)
+
 
 class PosConfigs(models.Model):
     _inherit = "pos.config"
 
-    location_ids = fields.Many2many('res.location',string="Location Id")
+    location_ids = fields.Many2many('res.location', string="Location Id")
 
     def get_locations(self):
         result = []
@@ -65,7 +65,6 @@ class PosConfigs(models.Model):
         print(result)
         return result
     # add location task end here
-
 
 
 class PosPartnerList(models.Model):

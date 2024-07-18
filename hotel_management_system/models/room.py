@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import uuid
 
 from odoo import models, fields, api, exceptions
 from odoo.exceptions import ValidationError
@@ -50,6 +51,7 @@ class RoomInformation(models.Model):
         self = self.with_context(name="jay")
         print("context after>>>>>>>>>>", self._context)
         res = super(RoomInformation, self).create(vals)
+        print("accesstoken",str(uuid.uuid4()))
         print(type(res))
         print("created>>>>>>>>>>", vals)
         return res

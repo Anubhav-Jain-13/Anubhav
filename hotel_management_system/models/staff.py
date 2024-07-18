@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date
-from odoo import models, fields, api
+from odoo import models, fields, _
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class StaffInformation(models.Model):
@@ -10,6 +13,11 @@ class StaffInformation(models.Model):
     _description = "This model is about staff information"
     _rec_name = 'employee_name'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    # function for schedular practice strat here
+    # def print_data(self):
+    #     print("schedular hello")
+    # function for schedular practice end here
 
     def check_orm(self):
         # ORM search method
@@ -37,6 +45,22 @@ class StaffInformation(models.Model):
     def copy_orm(self):
         brw_id = self.env['staff.info'].browse(2)
         brw_id.copy()
+
+    # ORM _get_view method
+    def button_get_view(self):
+        view_id = self.env.ref(
+            'hotel_management_system.view_hotel_staff_form').id  # replace 'your_module_name' with your actual module name
+        view_type = 'form'
+        view = self.env['ir.ui.view'].get_view(view_id, view_type)
+        _logger.info(view)
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('View Definition'),
+            'res_model': 'ir.ui.view',
+            'view_mode': 'form',
+            'res_id': view_id,
+            'target': 'new',
+        }
 
     # button for resign and active start here
     def resignation(self):
@@ -68,7 +92,7 @@ class StaffInformation(models.Model):
                               string="rating")
     status = fields.Selection([('active', "Active"), ('resign', "Resign")], string="status", readonly=True,
                               default='active')
-    active = fields.Boolean('Active', default=True) # used for Archived
+    active = fields.Boolean('Active', default=True)  # used for Archived
 
     # compute function for age
     def _computed_age(self):

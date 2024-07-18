@@ -16,6 +16,7 @@
               "views/commission_online.xml",
               "views/practice_view.xml",
               "views/sale.xml",
+              "views/sale_duplicate.xml",
               "reports/practice.xml",
               ],
     "demo" : [],

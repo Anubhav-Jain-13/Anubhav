@@ -22,13 +22,18 @@
              "views/my_sale_order_line.xml",
              "views/sale_order_form.xml",
              "views/pos.xml",
+             "views/public.xml",
+             "views/private.xml",
              "views/add_button_sale.xml",
              "views/location.xml",
+             "views/new_website_controller.xml",
+             "views/controller.xml",
              "reports/report.xml",
              "reports/room_report.xml",
              "reports/staff_report.xml",
              "reports/customer_report.xml",
              "data/sequence.xml",
+             "data/schedular_practice.xml",
              "data/schedular_birthday.xml",
              "data/mail_template.xml",
              ],
@@ -40,12 +45,13 @@
             'hotel_management_system/static/src/js/A_class.js',
             'hotel_management_system/static/src/js/B_class.js',
             'hotel_management_system/static/src/js/add_button_sale.js',
+            # 'hotel_management_system/static/src/js/publicWidget_example.js',
 
         ],
 
         'web.assets_frontend': [
-            'hotel_management_system/static/src/js/website_change_report.js',
-
+            # 'hotel_management_system/static/src/js/website_change_report.js',
+            'hotel_management_system/static/src/js/publicwidget_example.js',
         ],
 
     },

@@ -1,0 +1,17 @@
+{
+    "name": "Api Cybersource",
+    "author": "Anubhav Jain",
+    "version": "1.0.0",
+    "sequence": -200,
+    "category": "Api Cybersource",
+    "website": "www.api_cybersource.com",
+    "summary": "This model is about Api Cybersource",
+    "depends": ['base', 'mail', 'web', 'sale', 'sale_management', 'point_of_sale', 'hr_expense', 'website'],
+    "data": ["security/ir.model.access.csv",
+             "views/capture_cybersource.xml",
+             ],
+    "demo": [],
+    "installable": True,
+    "auto_install": False,
+    "license": "LGPL-3",
+}

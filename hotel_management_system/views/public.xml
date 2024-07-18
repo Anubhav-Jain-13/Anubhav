@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree view-->
+        <record id="view_public_info_tree" model="ir.ui.view">
+            <field name="name">public.info.tree</field>
+            <field name="model">public.info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="message"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Action window-->
+        <record id="action_public_info" model="ir.actions.act_window">
+            <field name="name">Public</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">public.info</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <menuitem id="menu_public_user"
+                  name="Public user"
+                  parent="menu_user_master"
+                  action="action_public_info"
+                  sequence="0"/>
+
+    </data>
+</odoo>

@@ -18,5 +18,11 @@
               name="Booking"
               parent="menu_hotel_root"
               sequence="0"/>
+
+         <!--main submenu-->
+         <menuitem id="menu_user_master"
+              name="Users"
+              parent="menu_hotel_root"
+              sequence="0"/>
     </data>
 </odoo>

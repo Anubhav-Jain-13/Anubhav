@@ -35,8 +35,5 @@
             </field>
         </record>
            <!--code to add one custom state in sale.order end here-->
-
-
-
     </data>
 </odoo>

@@ -109,3 +109,4 @@ class Product_product_new_button(models.Model):
             'context': context,
         }
     # function for showing list price through popup in product.product model end here
+

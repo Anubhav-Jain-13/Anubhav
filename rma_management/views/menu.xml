@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--main menu-->
+    <menuitem id="menu_rma_management_root"
+              name="RMA"
+              sequence="0"/>
+
+                 <!--main sub-menu-->
+        <menuitem id="menu_rma_request_master"
+                  name="RMA Requests"
+                  parent="menu_rma_management_root"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>

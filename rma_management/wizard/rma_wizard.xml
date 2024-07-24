@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+             <!--form view for wizard in rma model start here-->
+        <record id="rma_view_form" model="ir.ui.view">
+            <field name="name">rma.form</field>
+            <field name="model">rma.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Wizard">
+                    <sheet>
+                        <group>
+                            <field name="rma_request_id"/>
+                            <field name="action"/>
+                            <field name="replacement_order_id"/>
+                            <field name="refund_invoice_id"/>
+                        </group>
+                        <footer>
+                            <button name="approved" string="Approved" type="object" class="btn-primary"/>
+                            <button name="reject" string="Reject" type="object" class="btn-primary"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+              <!--form view for wizard in rma model start here-->
+
+                <!--action window for wizard in rma model start here-->
+        <record id="rma_wizard_for_approve" model="ir.actions.act_window">
+            <field name="name">RMA APPROVED</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rma.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="rma_view_form"/>
+            <field name="target">new</field>
+        </record>
+               <!--action window for wizard in rma model start here-->
+    </data>
+</odoo>

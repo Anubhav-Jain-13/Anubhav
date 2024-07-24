@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="basic_snippet" name="Basic Snippet">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"> <!-- Added text-center class to center align content -->
+                <div style="max-width: 300px; margin: 0 auto;"> <!-- Set max-width to limit size and center image -->
+                    <img src="/hotel_management_system/static/src/img/department.png" alt="Department Image" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;"/>
+                </div>
+                <h1>Odoo Department</h1> <!-- Replace with your department name -->
+                <p>Here is some information about the Odoo department. You can describe what the department does, its goals, etc.</p>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="external_snippets" inherit_id="website.snippets" priority="9">
+    <xpath expr="//div[@id='snippet_content']//t[@t-snippet][last()]" position="after">
+        <t t-snippet="hotel_management_system.basic_snippet"
+           t-thumbnail="/hotel_management_system/static/src/img/horse.png" t-name="Odoo Department Snippet"/>
+    </xpath>
+</template>
+
+</odoo>

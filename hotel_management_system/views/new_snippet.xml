@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="snippet_testimonial" name="R3GIS Test Snippet">
+        <section class="snippet_testimonial">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Client Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="place_into_bar" inherit_id="website.snippets" name="Place into bar">
+        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+            <t t-snippet="hotel_management_system.snippet_testimonial"
+               t-thumbnail="/hotel_management_system/static/src/img/tiger.jpg"/>
+        </xpath>
+    </template>
+
+</odoo>

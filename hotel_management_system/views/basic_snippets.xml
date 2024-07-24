@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="basic_snippet" name="Basic Snippet">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Basic Snippet.........</h1>
+                <p>This is a basic snippet that is used to test the basic functionality of the snippets.</p>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="external_snippets" inherit_id="website.snippets" priority="8">
+    <xpath expr="//div[@id='snippet_content']//t[@t-snippet][last()]" position="after">
+        <t t-snippet="hotel_management_system.basic_snippet"
+           t-thumbnail="/hotel_management_system/static/src/img/horse.png" t-name="Custom Snippet"/>
+    </xpath>
+</template>
+
+</odoo>

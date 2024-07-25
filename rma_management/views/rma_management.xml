@@ -26,12 +26,12 @@
             <field name="arch" type="xml">
                 <form string="RMA Request Form">
                     <header>
-                        <button name="pending_rma" string="Pending" type="object" class="btn-danger"/>
-                        <button name="approve_rma" string="Approve" type="object" class="btn-primary"/>
-                        <button name="action_reject" string="Reject" type="object" class="btn-secondary"/>
+                        <button name="pending_rma" string="Pending" type="object" class="btn-danger" invisible="rma_status=='completed'"/>
+                        <button name="approve_rma" string="Approve" type="object" class="btn-primary" invisible="rma_status=='completed'"/>
+                        <button name="action_reject" string="Reject" type="object" class="btn-secondary" invisible="rma_status=='completed'"/>
                         <button name="action_complete" string="Complete" type="object" class="btn-success"/>
                         <button name="%(rma_management.rma_wizard_for_approve)d" type="action" string="RMA Wizard"
-                                class="btn-primary"/>
+                                class="btn-primary" invisible="rma_status=='completed'"/>
                     </header>
                     <sheet>
                         <group>
@@ -40,6 +40,7 @@
                                 <field name="product_id"/>
                                 <field name="customer_id"/>
                                 <field name="return_reason"/>
+                                <field name="product_ids" widget="many2many_tags" invisible="1"/>
                             </group>
                             <group>
                                 <field name="return_date"/>
@@ -75,6 +76,5 @@
               parent="menu_rma_request_master"
               action="action_rma_request"
               sequence="1"/>
-
 
 </odoo>

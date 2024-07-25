@@ -38,7 +38,6 @@ class RmaWizard(models.TransientModel):
         rma_request.write({
             'rma_status': 'completed',
             'replacement_order_id': new_sale_order.id,
-            'refund_invoice_id': self.refund_invoice_id.id,
         })
 
         return {
@@ -100,8 +99,3 @@ class RmaWizard(models.TransientModel):
             })
         return res
     #  for getting active id in wizard and update the fields end here
-
-
-
-
-
